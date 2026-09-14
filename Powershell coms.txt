@@ -1,0 +1,20 @@
+Powershell coms
+
+
+Get-NetAdapter
+
+//Comando para saber o nome da placa de rede e usar nos comandos para definir o ip estatico
+
+Rename-Computer -NewName "DC01" -Restart
+
+//este comando altera o nome do computador para DC01 e faz o Restart
+
+
+New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.122.10 -PrefixLength 24 -DefaultGateway 192.168.122.1
+
+//Para definir um ip estatico  coloquei o ip escolhido no -IpAdress e o gateway(o router) no default gateway
+
+Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
+//Comando Para Instalar a Feature do Windows Server Ad DOMAIN SERVER
+
+Install-ADDSForest -DomainName "az104.local" -InstallDns -Force
